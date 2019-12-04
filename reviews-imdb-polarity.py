@@ -40,8 +40,9 @@ partial_x_train = x_train[10000:]
 y_val = y_train[:10000]
 partial_y_train = y_train[10000:]
 
-history = model.fit(partial_x_train,partial_y_train,epochs=20,batch_size=512,validation_data=(x_val, y_val))
+#history = model.fit(partial_x_train,partial_y_train,epochs=20,batch_size=512,validation_data=(x_val, y_val))
 
+'''
 #lets see what happened during the training
 history_dict = history.history
 print(history_dict.keys())
@@ -73,4 +74,11 @@ plt.title('Training and validation accuracy')
 plt.xlabel('Epochs')
 plt.ylabel('Loss')
 plt.legend()
-plt.show()
+plt.show() '''
+
+model.fit(x_train, y_train, epochs=4, batch_size=512)
+results = model.evaluate(x_test, y_test)
+print(results)
+
+#predicting the outcome
+print(model.predict(x_test))
